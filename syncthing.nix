@@ -21,7 +21,8 @@ in
       settings = {
         devices = {
           "kiesel-laptop" = { id = secrets.syncthing.id.kiesel-laptop; };
-        };
+          "PC" = { id = secrets.syncthing.id.PC; };
+          };
         folders = {
           "Documents" = {
             path = secrets.syncthing.dataDir;
