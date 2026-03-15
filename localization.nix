@@ -1,10 +1,12 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   time.timeZone = "Europe/Berlin";
 
-  i18n.defaultLocale = "us_US.UTF-8";
-  i18n.extraLocales = [ "de_DE.UTF-8" ];
+  i18n.defaultLocale = "en_US.UTF-8";
+ 
+  i18n.extraLocales = [ "de_DE.UTF-8/UTF-8" ];
+ 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";

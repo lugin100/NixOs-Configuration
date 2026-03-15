@@ -13,6 +13,7 @@ in
       ./hardware-configuration.nix
       ./pi-hole.nix
       ./syncthing.nix 
+      ./localization.nix
    ];
 
 
