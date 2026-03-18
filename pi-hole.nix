@@ -40,7 +40,7 @@
     };
     services.pihole-web = {
       enable = true;
-      ports = [ "80r" "443s" ];
+      ports = [ "8000" ]; 
     };
     # The following silences a benign FTL.log warning:
     # WARNING API: Failed to read /etc/pihole/versions (key: internal_error)
@@ -49,3 +49,4 @@
     ];
   };
 }
+
