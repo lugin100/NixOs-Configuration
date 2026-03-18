@@ -95,7 +95,7 @@ in
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/1 * * * * ./etc/nixos/duckdns/sript.sh"
+      "*/3 * * * * root /etc/nixos/duckdns/script.sh" # Update dynamic IP DNS entry every 3 minutes
     ];
   };
 
