@@ -32,15 +32,10 @@ in
 
 
   # Network connection
-  # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
-  # Network proxy
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
-  # Enable the OpenSSH daemon.
+  # SSH
   services.openssh = {
     enable = true;
     ports = [ secrets.sshPort ];
@@ -51,24 +46,13 @@ in
       AllowUsers = [ secrets.user1 ];
       };
   };
+
+  # Fail2Ban
   services.fail2ban.enable = true;
 
 
   # Disable X11
   services.xserver.enable = false;
-
-
-  
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
 
 
   # User account
@@ -79,10 +63,9 @@ in
     ];
   };
 
-  # programs.firefox.enable = true;
 
-  # Installed packages
-  # You can use https://search.nixos.org/ to find more packages (and options).
+  # System-wide packages
+  # Find more on  https://search.nixos.org/
   environment.systemPackages = with pkgs; [
     tree
     wget
@@ -91,7 +74,7 @@ in
     tldr
   ];
 
-  # Enable cron service
+  # Cron
   services.cron = {
     enable = true;
     systemCronJobs = [
