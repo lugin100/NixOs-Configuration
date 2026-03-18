@@ -11,9 +11,10 @@ in
   imports =
     [
       ./hardware-configuration.nix
+      ./localization.nix
+      ./networking.nix
       ./pi-hole.nix
       ./syncthing.nix 
-      ./localization.nix
    ];
 
 
@@ -29,26 +30,6 @@ in
   # Disable automatic updates
   system.autoUpgrade.enable = false;
   system.autoUpgrade.allowReboot = false;
-
-
-  # Network connection
-  networking.networkmanager.enable = true;
-
-
-  # SSH
-  services.openssh = {
-    enable = true;
-    ports = [ secrets.sshPort ];
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-      AllowUsers = [ secrets.user1 ];
-      };
-  };
-
-  # Fail2Ban
-  services.fail2ban.enable = true;
 
 
   # Disable X11
@@ -99,12 +80,6 @@ in
   #   enableSSHSupport = true;
   # };
 
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
