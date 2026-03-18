@@ -91,6 +91,14 @@ in
     tldr
   ];
 
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "*/1 * * * * ./etc/nixos/duckdns/sript.sh"
+    ];
+  };
+
   services.pihole-ftl = {
     enable = true;
     settings = {
