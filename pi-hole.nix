@@ -16,8 +16,10 @@
       queryLogDeleter.enable = true;
       settings = {
         dns = {
-          upstreams = [ "10.0.9.1" ];
+          upstreams = [ "9.9.9.9" "1.1.1.1" ];
           listeningMode = "ALL";
+          hosts = [ "192.168.1.188 hostname.domain" ];
+
         };
         dhcp = {
           active = false;
